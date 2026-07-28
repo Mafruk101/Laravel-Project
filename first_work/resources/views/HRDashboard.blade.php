@@ -1,30 +1,3 @@
-<?php
-    $totalEmployees = 150;
-    $totalHires = 25;
-    $onLeaves = 10;
-    $openRoles = 5;
-
-    $attendance = [
-    ["Employee 1", "UI Designer", "Design", "Active", "Dhaka"],
-    ["Employee 2", "UI Designer", "Design", "Active", "Dhaka"],
-    ["Employee 3", "UI Designer", "Design", "Active", "Dhaka"],
-    ["Employee 4", "UI Designer", "Design", "Active", "Dhaka"],
-    ["Employee 5", "UI Designer", "Design", "Active", "Dhaka"],
-];
-
-// Leave Requests
-$leaveRequests = [
-    ["Employee 1", "126263526", "Pending"],
-    ["Employee 2", "126263526", "Approved"],
-];
-
-// Recruitment Pipeline
-$recruitments = [
-    ["Mark", "223322322", "Applied", "High", "Rahim"],
-    ["Mark", "223322322", "Applied", "High", "Rahim"],
-];
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -64,20 +37,20 @@ $recruitments = [
                 <section class= "cards">
 
                         <div class = "card">
-                           <h2><?=$totalEmployees?></h2>
+                            <h2>{{ $totalEmployees }}</h2>
                            <p>Total Employees </p>
                         </div>
                         <div class = "card">
-                            <h2><?=$totalHires?></h2>
-                            <p>Total Hires </p>
+                            <h2>{{ $activeEmployees }}</h2>
+                            <p>Active Employees</p>
                         </div>
                         <div class = "card">
-                            <h2><?=$onLeaves?></h2>
-                            <p>On Leaves </p>
+                            <h2>{{ $inactiveEmployees }}</h2>
+                            <p>Inactive Employees</p>
                         </div>
                         <div class = "card">
-                            <h2><?=$openRoles?></h2>
-                            <p>Open Roles </p>
+                            <h2>{{ $employees->pluck('Department')->unique()->count() }}</h2>
+                            <p>Departments</p>
                         </div>
 
                 </section>
@@ -97,15 +70,19 @@ $recruitments = [
                         </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($attendance as $row): ?>
+                            @forelse ($employees as $employee)
                                 <tr>
-                                    <td><?= $row[0] ?></td>
-                                    <td><?= $row[1] ?></td>
-                                    <td><?= $row[2] ?></td>
-                                    <td><?= $row[3] ?></td>
-                                    <td><?= $row[4] ?></td>
+                                    <td>Employee {{ $employee->EmployeeId }}</td>
+                                    <td>{{ $employee->Role }}</td>
+                                    <td>{{ $employee->Department }}</td>
+                                    <td>{{ $employee->Status }}</td>
+                                    <td>{{ $employee->Location }}</td>
                                 </tr>
-                            <?php endforeach; ?>
+                            @empty
+                                <tr>
+                                    <td colspan="5">No employees found.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </section>
@@ -244,13 +221,13 @@ $recruitments = [
             <li class="list-group-item"><a href="{{ route('hr.engagement') }}">Engagement</a></li> --}}
 
     </body>
- <html
+ </html>
 {{-- </html>
 <!DOCTYPE html>
 <html>
     <head>
         <title>HR Dashboard</title>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/HRDashboard.css', 'resources/js/app.js'])
     </head>
     <body>
         <main class="container">

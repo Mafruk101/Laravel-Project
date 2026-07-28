@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\HRDashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
-// routes/web.php
-Route::get('/hr-dashboard', function () {
-    return view('HRDashboard');
-})->name('hr.dashboard');
+Route::get('/hr-dashboard', [HRDashboardController::class, 'index'])->name('hr.dashboard');
+
+
+// Route::get('/', [HRDashboardController::class, 'index'])->name('hr.dashboard');

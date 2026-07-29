@@ -17,6 +17,7 @@ class Employee extends Model
         'Department',
         'Status',
         'Location',
+        'Action',
 
     ];
 }

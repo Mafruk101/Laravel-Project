@@ -28,8 +28,10 @@ Route::get('/hr/employees', function () {
     ]);
 })->name('hr.employees.content');
 
+Route::get('/hr/attendance', [HRDashboardController::class, 'attendanceContent'])->name('hr.attendance');
+
 Route::get('/hr/{page}', function (string $page) {
-    abort_unless(in_array($page, ['attendance', 'leave', 'recruitment', 'engagement'], true), 404);
+    abort_unless(in_array($page, ['leave', 'recruitment', 'engagement'], true), 404);
 
     return '<section class="table-section"><h2>' . ucfirst($page) . '</h2><p>This section is not set up yet.</p></section>';
-})->where('page', 'attendance|leave|recruitment|engagement');
+})->where('page', 'leave|recruitment|engagement');

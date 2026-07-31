@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
-
+use App\Models\Attendance;
 class HRDashboardController extends Controller
 {
     public function index()
@@ -61,5 +61,11 @@ class HRDashboardController extends Controller
             'partials.employees-content',
             compact('employees')
         );
+    }
+    public function attendanceContent()
+    {
+        $attendance = Attendance::orderBy('EmployeeId')->get();
+
+        return view('Partials.attendance-content', compact('attendance'));
     }
 }

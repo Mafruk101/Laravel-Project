@@ -1,4 +1,5 @@
                  <section class= "cards">
+
                         <div class = "card">
                             <h2>{{ $totalEmployees }}</h2>
                            <p>Total Employees </p>
@@ -15,6 +16,7 @@
                             <h2>{{ $employees->pluck('Department')->unique()->count() }}</h2>
                             <p>Departments</p>
                         </div>
+
                 </section>
 
                 <section class="table-section">

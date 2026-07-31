@@ -11,11 +11,9 @@
                 <div>
                     <h2>HR Dashboard</h2>
                 </div>
-                    <button id = "menu-btn"><i class ="fa-solid fa-bars"></i></button>
+                    {{-- <button id = "menu-btn"><i class ="fa-solid fa-bars"></i></button> --}}
                     <div class = "search-box">
-                        <input type = "text"
-                        id = "searchInput"
-                        placeholder = "Search...">
+                        <input type = "text" id = "searchInput" placeholder = "Search...">
                     </div>
                     <div class = "profile">
                         <div class="avater">M</div>

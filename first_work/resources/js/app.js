@@ -27,47 +27,60 @@ document.addEventListener('DOMContentLoaded',function(){
             })
             .then(html => {
                 mainContent.innerHTML = html;
+                initializeSearchInput();
             })
            .catch(() => {
                 mainContent.innerHTML = '<p>Could not load this section.</p>';
             });
-
     }
-
     menuLinks.forEach(function(link){
         link.addEventListener('click',function(event){
             event.preventDefault();
-            document
-                    .querySelectorAll(".menu li")
+            document.querySelectorAll(".menu li")
                     .forEach(function (item) {
-
-                        item.classList
-                            .remove("active");
-
+                        item.classList.remove("active");
                     });
 
-
                 // Add active class
-
-                this
-                    .closest("li")
-                    .classList
-                    .add("active");
-
+                this.closest("li").classList.add("active");
 
                 // Get page name
 
-                const page =
-                    this.dataset.page;
-
-
+                const page = this.dataset.page;
                 // Load page
-
                 loadPage(page);
 
             }
         );
 
     });
+
+
+    function initializeSearchInput(){
+        const searchInput_inside = document.getElementById('searchInput_inside');
+        if(!searchInput_inside){
+            return;
+        }
+        searchInput_inside.addEventListener('input',function(){
+            const searchText = this.value.toLowerCase();
+            // const rows = document.querySelectorAll('.table-section table tbody tr');
+            const rows = document.querySelectorAll('#mainContent tbody tr');
+            rows.forEach(function(row){
+                const rowText = row.innerText.toLowerCase();
+                if(rowText.includes(searchText)){
+                    row.style.display = "";
+                }
+                else{
+                    row.style.display = "none";
+                }
+            });
+
+        });
+    }
+
+
+
+
+
     loadPage("dashboard");
 });

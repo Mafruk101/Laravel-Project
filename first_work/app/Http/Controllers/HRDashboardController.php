@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Attendance;
+use App\Models\Leave;
 class HRDashboardController extends Controller
 {
     public function index()
@@ -67,5 +68,9 @@ class HRDashboardController extends Controller
         $attendance = Attendance::orderBy('EmployeeId')->get();
 
         return view('Partials.attendance-content', compact('attendance'));
+    }
+    public function LeaveContent(){
+        $leaveRequests = Leave::orderBy('EmployeeId')->get();
+        return view('Partials.leave-content', compact('leaveRequests'));
     }
 }

@@ -4,7 +4,7 @@
 
 <section class="table-section">
     <div class = "section-header">
-        <h2>Attendance Overview</h2>
+        <h2>Employee Directory</h2>
     </div>
     <table>
         <thead>

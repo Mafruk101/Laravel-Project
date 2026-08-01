@@ -17,7 +17,6 @@ class Attendance extends Model
         'Date',
         'Present',
         'Absent',
-        'Action',
 
     ];
 }

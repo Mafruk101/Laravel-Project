@@ -29,6 +29,7 @@ Route::get('/hr/employees', function () {
 })->name('hr.employees.content');
 
 Route::get('/hr/attendance', [HRDashboardController::class, 'attendanceContent'])->name('hr.attendance');
+Route::get('/hr/leave',[HRDashboardController::class, 'leaveContent'])->name('hr.leave');
 
 Route::get('/hr/{page}', function (string $page) {
     abort_unless(in_array($page, ['leave', 'recruitment', 'engagement'], true), 404);

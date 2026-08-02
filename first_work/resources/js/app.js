@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded',function(){
     const mainContent=document.getElementById('mainContent');
     const menuLinks = document.querySelectorAll('.ajax-menu');
 
+    if (!mainContent) {
+        return;
+    }
+
     const pageUrls={
         dashboard: '/hr/dashboard',
         employees: '/hr/employees',
@@ -41,13 +45,8 @@ document.addEventListener('DOMContentLoaded',function(){
                         item.classList.remove("active");
                     });
 
-                // Add active class
                 this.closest("li").classList.add("active");
-
-                // Get page name
-
                 const page = this.dataset.page;
-                // Load page
                 loadPage(page);
 
             }
@@ -77,10 +76,5 @@ document.addEventListener('DOMContentLoaded',function(){
 
         });
     }
-
-
-
-
-
     loadPage("dashboard");
 });

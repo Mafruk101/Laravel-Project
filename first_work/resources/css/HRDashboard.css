@@ -385,3 +385,96 @@ table{
     margin-left:10px;
     font-size:15px;
 }
+
+
+
+
+/*
+   Engagement section
+ */
+.page-title{
+    margin-bottom: 28px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #4d2b2b;
+}
+
+.event-grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(190px, 1fr));
+    gap: 18px;
+}
+.event-card{
+    min-height: 245px;
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+    transition: 0.3s;
+}
+.event-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.1);
+}
+.event-card h3{
+    font-size: 16px;
+    font-weight: 500;
+    color: #4d2b2b;
+    margin-bottom: 15px;
+}
+.event-image-box{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background:#e9e9e9;
+}
+.event-image-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.event-date{
+    margin-top: 16px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 500;
+    color: #4d2b2b;
+}
+.no-events-image{
+    color: #777;
+    font-size: 14px;
+}
+
+
+
+
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .events-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+/* Small tablet */
+@media (max-width: 750px) {
+    .events-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+/* Mobile */
+@media (max-width: 500px) {
+    .events-grid {
+        grid-template-columns:
+            1fr;
+    }
+}
+

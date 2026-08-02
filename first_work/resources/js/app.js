@@ -21,6 +21,17 @@ document.addEventListener('DOMContentLoaded',function(){
             headers:{
                 "X-Requested-With":"XMLHttpRequest"
             }
+
+// const url = `${pageUrls[page]}?t=${Date.now()}`;
+//         fetch(url, {
+//             method:"GET",
+//             cache: 'no-store',
+//             headers:{
+
+//                 "X-Requested-With":"XMLHttpRequest"
+//             }
+
+
         })
             .then(response => {
                 if (!response.ok) {

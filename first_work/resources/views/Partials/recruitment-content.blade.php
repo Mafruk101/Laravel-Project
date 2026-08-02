@@ -15,7 +15,7 @@
         <tbody>
             @forelse ($recruitmentRequests as $recruitment)
                 <tr>
-                    <td>Employee {{ $recruitment->EmployeeId }}</td>
+                    <td>Applicant {{ $recruitment->ApplicationId }}</td>
                     <td>{{ $recruitment->Name }}</td>
                     <td>{{ $recruitment->Status }}</td>
                     <td>{{ $recruitment->Priority }}</td>

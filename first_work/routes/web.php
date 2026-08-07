@@ -32,13 +32,9 @@ Route::get('/hr/employees', function () {
     ]);
 })->name('hr.employees.content');
 
-Route::get('/hr/attendance', [HRDashboardController::class, 'attendanceContent'])->name('hr.attendance');
-Route::get('/hr/leave',[HRDashboardController::class, 'leaveContent'])->name('hr.leave');
-Route::get('/hr/recruitment',[HRDashboardController::class, 'recruitmentContent'])->name('hr.recruitment');
-Route::get('/hr/engagement',[HRDashboardController::class, 'engagementContent'])->name('hr.engagement');
+Route::get('/hr/attendance', [HRDashboardController::class, 'attendanceContent']);
+Route::get('/hr/leave',[HRDashboardController::class, 'leaveContent']);
+Route::get('/hr/recruitment',[HRDashboardController::class, 'recruitmentContent']);
+Route::get('/hr/engagement',[HRDashboardController::class, 'engagementContent']);
 
-// Route::get('/hr/{page}', function (string $page) {
-//     abort_unless(in_array($page, ['engagement'], true), 404);
-
-//     return '<section class="table-section"><h2>' . ucfirst($page) . '</h2><p>This section is not set up yet.</p></section>';
-// })->where('page', 'engagement');
+// ->name('hr.attendance')
